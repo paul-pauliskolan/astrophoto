@@ -193,6 +193,23 @@ h1 em { color: #ef6648; font-weight: 400; }
 .instruction-list li { display: grid; grid-template-columns: 32px 1fr; gap: 1rem; padding: 1.4rem 0; border-top: 1px solid var(--line); }
 .instruction-list li > span { width: 28px; height: 28px; display: grid; place-items: center; color: var(--accent); border: 1px solid var(--accent); border-radius: 50%; font-size: .72rem; }
 .instruction-list p { margin: .35rem 0 0; }
+.guide-figure-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 2rem 0 .6rem; }
+.guide-figure { margin: 2rem 0 .6rem; overflow: hidden; background: var(--surface); border: 1px solid var(--line); }
+.guide-figure-grid .guide-figure { margin: 0; }
+.guide-figure a { display: block; overflow: hidden; background: #fff; }
+.guide-figure img { width: 100%; height: auto; transition: filter .25s, transform .4s ease; }
+.guide-figure a:hover img { transform: scale(1.012); }
+.guide-figure figcaption { display: grid; gap: .25rem; padding: 1rem 1.1rem 1.1rem; }
+.guide-figure figcaption strong { font-size: .82rem; }
+.guide-figure figcaption span { color: var(--muted); font-size: .74rem; line-height: 1.5; }
+.guide-figure-wide img { aspect-ratio: 1280 / 695; object-fit: cover; }
+.guide-figure-phone { max-width: 660px; }
+.guide-figure-poster { max-width: 560px; margin-inline: auto; }
+.image-credit { margin: .7rem 0 2rem; color: var(--muted); font-size: .68rem; letter-spacing: .03em; }
+.image-credit a { color: var(--ink); }
+[data-theme="night"] .guide-figure a { background: #000; }
+[data-theme="night"] .guide-figure img { filter: brightness(.38) sepia(.38) saturate(.72); }
+[data-theme="night"] .guide-figure a:hover img, [data-theme="night"] .guide-figure a:focus img { filter: brightness(.62) sepia(.3) saturate(.78); }
 .app-path { display: flex; flex-wrap: wrap; align-items: center; gap: .6rem; margin: 2rem 0; padding: 1.3rem; background: var(--ink); color: var(--bg); }
 .app-path span, .app-path strong { color: inherit; font-size: .76rem; }
 .app-path i { color: var(--accent); font-style: normal; }
@@ -294,6 +311,7 @@ footer > a:last-child { justify-self: end; color: #d5d3cc; font-size: .75rem; te
   .guide-section { grid-template-columns: 1fr; gap: .6rem; }
   .step-number { padding-bottom: .6rem; border-bottom: 1px solid var(--line); }
   .concept-card { padding: 1rem; }
+  .guide-figure-grid { grid-template-columns: 1fr; }
   .concept-card p { display: grid; }
   .process { display: grid; grid-template-columns: 1fr; }
   .process i { transform: rotate(90deg); }
