@@ -150,9 +150,11 @@ h1 em { color: #ef6648; font-weight: 400; }
 .gallery-card.compact { grid-column: span 3; grid-row: span 1; }
 .gallery-card.wide { grid-column: span 6; grid-row: span 2; }
 .gallery-card.sun-card { grid-column: span 5; grid-row: span 3; }
+.gallery-card.panorama { grid-column: span 12; grid-row: span 3; }
 .gallery-card img { width: 100%; height: 100%; object-fit: cover; transition: transform .65s cubic-bezier(.2,.75,.2,1), filter .25s; }
 .gallery-card.featured img { object-position: center 40%; }
 .gallery-card.wide img { object-position: center 37%; }
+.gallery-card.panorama img { object-position: center 48%; }
 .gallery-card::after { content: ""; position: absolute; inset: 30% 0 0; background: linear-gradient(transparent, rgba(0,0,0,.82)); pointer-events: none; }
 .gallery-card:hover img { transform: scale(1.035); }
 .gallery-overlay { position: absolute; z-index: 1; right: 0; bottom: 0; left: 0; display: flex; align-items: flex-end; justify-content: space-between; padding: 1.4rem; }
@@ -284,6 +286,7 @@ footer > a:last-child { justify-self: end; color: #d5d3cc; font-size: .75rem; te
   .gallery-card.compact { grid-column: span 6; }
   .gallery-card.wide { grid-column: span 12; }
   .gallery-card.sun-card { grid-column: span 6; grid-row: span 2; }
+  .gallery-card.panorama { grid-column: span 12; grid-row: span 2; }
   .guide-shell { grid-template-columns: 1fr; }
   .guide-nav { display: none; }
 }
@@ -308,7 +311,7 @@ footer > a:last-child { justify-self: end; color: #d5d3cc; font-size: .75rem; te
   .section-heading-row { display: block; }
   .section-heading-row > p { margin-top: 1.5rem; }
   .gallery-grid { grid-auto-rows: 360px; }
-  .gallery-card, .gallery-card.featured, .gallery-card.compact, .gallery-card.wide, .gallery-card.sun-card { grid-column: span 12; grid-row: span 1; }
+  .gallery-card, .gallery-card.featured, .gallery-card.compact, .gallery-card.wide, .gallery-card.sun-card, .gallery-card.panorama { grid-column: span 12; grid-row: span 1; }
   .gallery-card img, .gallery-card.wide img { object-position: center 40%; }
   .guide-section { grid-template-columns: 1fr; gap: .6rem; }
   .step-number { padding-bottom: .6rem; border-bottom: 1px solid var(--line); }
