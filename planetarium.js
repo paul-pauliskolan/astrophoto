@@ -4,48 +4,84 @@ const observations = [
   {
     id: 'm31', title: 'The Andromeda Galaxy', catalogue: 'M31 · M32 · M110', constellation: 'Andromeda',
     ra: 0.712, dec: 41.269, image: 'images/seestar/M33-M110-M32.jpg', frame: [2.25, 4.0],
+    type: 'Galaxy group',
     distance: '2.5 million light-years', size: '3.2° × 1.0°', moons: '6.4 × 2.0 Moon diameters',
     summary: 'Our nearest large galactic neighbour, accompanied by M32 and M110. Its faint outer disc spans far more sky than the bright core suggests.'
   },
   {
     id: 'm81', title: "Bode’s Galaxy & friends", catalogue: 'M81 · M82 · NGC 3077', constellation: 'Ursa Major',
     ra: 9.926, dec: 69.10, image: 'images/seestar/Bode and friends.jpg', frame: [2.25, 3.0],
+    type: 'Interacting galaxy group',
     distance: '11.8 million light-years', size: '0.45° × 0.24° (M81)', moons: '0.9 × 0.5 Moon diameters',
     summary: 'A nearby group led by the grand-design spiral M81 and the starburst galaxy M82, distorted by their gravitational encounter.'
   },
   {
     id: 'm27', title: 'The Dumbbell Nebula', catalogue: 'M27', constellation: 'Vulpecula',
     ra: 19.993, dec: 22.721, image: 'images/seestar/m27-dumbbell-nebula.jpg', frame: [2.25, 2.25],
+    type: 'Planetary nebula',
     distance: 'about 1,360 light-years', size: '0.13° × 0.10°', moons: '0.27 × 0.19 Moon diameters',
     summary: 'A planetary nebula: expanding gas cast off by a dying Sun-like star, now lit by its hot exposed core.'
   },
   {
     id: 'm13', title: 'The Great Cluster', catalogue: 'M13', constellation: 'Hercules',
     ra: 16.695, dec: 36.461, image: 'images/seestar/M13.jpg', frame: [2.25, 4.0],
+    type: 'Globular star cluster',
     distance: 'about 22,200 light-years', size: '0.33° across', moons: '0.67 Moon diameters',
     summary: 'Several hundred thousand ancient stars gathered into one of the northern sky’s finest globular clusters.'
   },
   {
     id: 'm51', title: 'The Whirlpool Galaxy', catalogue: 'M51 · NGC 5195', constellation: 'Canes Venatici',
     ra: 13.498, dec: 47.195, image: 'images/seestar/M51.jpg', frame: [2.25, 4.0],
+    type: 'Interacting galaxies',
     distance: 'about 31 million light-years', size: '0.19° × 0.12°', moons: '0.37 × 0.23 Moon diameters',
     summary: 'A face-on spiral and its smaller companion. Their interaction helps make the Whirlpool’s two sweeping arms so distinct.'
   },
   {
     id: 'ngc7000', title: 'North America Nebula', catalogue: 'NGC 7000', constellation: 'Cygnus',
     ra: 20.975, dec: 44.33, image: 'images/seestar/north-america-nebula.jpg', frame: [2.25, 4.0],
+    type: 'Emission nebula · H II region',
     distance: 'about 2,600 light-years', size: '2.0° × 1.7°', moons: '4.0 × 3.4 Moon diameters',
     summary: 'A vast hydrogen-emission region whose bright clouds and dark dust lanes trace a familiar continental silhouette.'
   },
   {
     id: 'ic1396', title: 'Elephant’s Trunk Nebula', catalogue: 'IC 1396A', constellation: 'Cepheus',
     ra: 21.650, dec: 57.50, image: 'images/seestar/elephants-trunk-nebula.jpg', frame: [2.25, 4.0],
+    type: 'Dark nebula · star-forming region',
     distance: 'about 2,400 light-years', size: 'about 0.33° long', moons: 'about 0.7 Moon diameters',
     summary: 'A dense pillar of gas and dust inside the much larger IC 1396 star-forming region, sculpted by nearby massive stars.'
   },
   {
+    id: 'ngc6992', title: 'Eastern Veil Nebula', catalogue: 'NGC 6992 · Caldwell 33', constellation: 'Cygnus',
+    ra: 20.940, dec: 31.72, image: 'images/seestar/NGC 6992.jpg', frame: [2.25, 2.25],
+    type: 'Supernova remnant',
+    distance: 'about 2,000 light-years', size: 'about 1.3° × 0.2°', moons: '2.7 × 0.4 Moon diameters',
+    summary: 'The bright eastern arc of the Veil Nebula, a filamentary shell of gas expanding from a supernova that exploded thousands of years ago.'
+  },
+  {
+    id: 'ngc7822', title: 'Question Mark Nebula', catalogue: 'NGC 7822 · Sh2-171 · V398 Cephei', constellation: 'Cepheus',
+    ra: 0.061, dec: 67.15, image: 'images/seestar/V398 Cephei - NGC 7822.jpg', frame: [2.67, 4.0],
+    type: 'Emission nebula · star-forming complex',
+    distance: 'about 3,000 light-years', size: 'about 3° across', moons: 'about 6 Moon diameters',
+    summary: 'A vast cloud of ionised hydrogen and dark dust shaped like a question mark. The field includes the young NGC 7822 complex and the region around variable star V398 Cephei.'
+  },
+  {
+    id: 'ngc6960', title: 'Western Veil Nebula', catalogue: 'NGC 6960 · Caldwell 34', constellation: 'Cygnus',
+    ra: 20.760, dec: 30.70, image: 'images/seestar/ngc 6960.jpg', frame: [2.25, 2.25],
+    type: 'Supernova remnant',
+    distance: 'about 2,000 light-years', size: 'about 1.2° × 0.1°', moons: '2.3 × 0.2 Moon diameters',
+    summary: 'The western arc of the Veil Nebula, also called the Witch’s Broom. Its glowing filaments are a shock front moving through interstellar gas.'
+  },
+  {
+    id: 'ngc7635', title: 'Bubble Nebula & friends', catalogue: 'NGC 7635 · M52 · Sh2-157', constellation: 'Cassiopeia',
+    ra: 23.300, dec: 61.10, image: 'images/seestar/ngc 7635.jpg', frame: [3.8, 3.8],
+    type: 'Wind-blown emission nebula',
+    distance: 'about 7,100 light-years', size: 'about 0.05° across (bubble)', moons: 'about 0.1 Moon diameters',
+    summary: 'A bubble of gas inflated by the fierce wind from a massive hot star. This wide field also shows open cluster M52 and the larger Lobster Claw region, Sh2-157.'
+  },
+  {
     id: 'eclipse', title: 'Sun & Moon', catalogue: 'Partial solar eclipse', constellation: 'The ecliptic',
     ra: 0.600, dec: 4.0, image: 'images/seestar/sun-moon.jpg', frame: [2.25, 4.0],
+    type: 'Solar-system event',
     distance: 'Moon: about 384,400 km', size: 'about 0.5° across', moons: '1 Moon diameter',
     summary: 'The Moon passes between Earth and the Sun. Unlike the deep-sky objects, this marker is illustrative: both bodies move across the celestial sphere.'
   }
@@ -310,6 +346,11 @@ let previousX = 0;
 let previousY = 0;
 const raycaster = new THREE.Raycaster();
 const pointer = new THREE.Vector2();
+const fullImageLink = panel.querySelector('.object-full-image');
+const photoLightbox = document.querySelector('.planetarium-lightbox');
+const photoLightboxImage = photoLightbox.querySelector('img');
+const photoLightboxTitle = photoLightbox.querySelector('figcaption strong');
+const photoLightboxMeta = photoLightbox.querySelector('figcaption span');
 
 function pointCamera(direction = viewDirection) {
   camera.lookAt(direction);
@@ -344,11 +385,12 @@ function selectObservation(observation) {
   panel.querySelector('.object-catalogue').textContent = `${observation.catalogue} · ${observation.constellation}`;
   panel.querySelector('.object-title').textContent = observation.title;
   panel.querySelector('.object-summary').textContent = observation.summary;
+  panel.querySelector('.object-type').textContent = observation.type;
   panel.querySelector('.object-distance').textContent = observation.distance;
   panel.querySelector('.object-size').textContent = observation.size;
   panel.querySelector('.object-moons').textContent = observation.moons;
   panel.querySelector('.object-position').textContent = `RA ${formatPosition(targetDirection).ra} · Dec ${formatPosition(targetDirection).dec}`;
-  panel.querySelector('.object-full-image').href = observation.image;
+  fullImageLink.href = observation.image;
 }
 
 function overview() {
@@ -413,6 +455,16 @@ canvas.addEventListener('touchmove', event => {
 }, { passive: true });
 
 panel.querySelector('.object-panel-close').addEventListener('click', overview);
+fullImageLink.addEventListener('click', event => {
+  event.preventDefault();
+  if (!selected) return;
+  photoLightboxImage.src = selected.image;
+  photoLightboxImage.alt = `${selected.title}, photographed in ${selected.constellation}`;
+  photoLightboxTitle.textContent = selected.title;
+  photoLightboxMeta.textContent = selected.catalogue;
+  photoLightbox.showModal();
+});
+photoLightbox.querySelector('.planetarium-lightbox-back').addEventListener('click', () => photoLightbox.close());
 document.querySelector('[data-sky-action="home"]').addEventListener('click', overview);
 document.querySelector('[data-sky-action="zoom-in"]').addEventListener('click', () => adjustZoom(-8));
 document.querySelector('[data-sky-action="zoom-out"]').addEventListener('click', () => adjustZoom(8));

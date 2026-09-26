@@ -27,7 +27,7 @@
     <div class="sky-loading" role="status"><span></span>Charting the sky…</div>
 
     <aside class="sky-menu" aria-label="Photograph destinations">
-      <div class="sky-menu-heading"><span>Observations</span><strong>08</strong></div>
+      <div class="sky-menu-heading"><span>Observations</span><strong>12</strong></div>
       <div class="sky-targets"></div>
     </aside>
 
@@ -47,14 +47,24 @@
       <h2 class="object-title"></h2>
       <p class="object-summary"></p>
       <dl>
+        <div><dt>Object</dt><dd class="object-type"></dd></div>
         <div><dt>Distance</dt><dd class="object-distance"></dd></div>
         <div><dt>Angular size</dt><dd class="object-size"></dd></div>
         <div><dt>Full moons</dt><dd class="object-moons"></dd></div>
         <div><dt>Position</dt><dd class="object-position"></dd></div>
       </dl>
       <p class="object-note">Angular size describes the photographed object, not the camera frame. One full Moon is approximately 0.5° across.</p>
-      <a class="object-full-image" href="" target="_blank" rel="noopener">Open full photograph <span aria-hidden="true">↗</span></a>
+      <a class="object-full-image" href="">Open full photograph <span aria-hidden="true">↗</span></a>
     </article>
+
+    <dialog class="lightbox planetarium-lightbox" aria-labelledby="planetarium-lightbox-title">
+      <button class="planetarium-lightbox-back" type="button"><span aria-hidden="true">←</span> Back to sky atlas</button>
+      <button class="lightbox-close" type="button" aria-label="Close photograph">×</button>
+      <figure>
+        <img src="" alt="">
+        <figcaption><strong id="planetarium-lightbox-title"></strong><span></span></figcaption>
+      </figure>
+    </dialog>
 
     <noscript><p class="sky-error">The interactive sky atlas requires JavaScript. The photographs remain available in the <a href="gallery.html">gallery</a>.</p></noscript>
   </main>
