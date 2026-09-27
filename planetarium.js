@@ -30,6 +30,13 @@ const observations = [
     summary: 'Several hundred thousand ancient stars gathered into one of the northern sky’s finest globular clusters.'
   },
   {
+    id: 'm45', title: 'The Pleiades', catalogue: 'M45 · Seven Sisters', constellation: 'Taurus',
+    ra: 3.79, dec: 24.12, image: 'images/seestar/Pleiaderna.jpg', frame: [3.8, 3.8],
+    type: 'Open star cluster · reflection nebula',
+    distance: 'about 445 light-years', size: 'about 1.3° across', moons: 'about 2.6 Moon diameters',
+    summary: 'A nearby young open cluster whose brightest blue stars are visible to the unaided eye. Their light is scattered by surrounding dust, producing the delicate blue reflection nebulosity.'
+  },
+  {
     id: 'm51', title: 'The Whirlpool Galaxy', catalogue: 'M51 · NGC 5195', constellation: 'Canes Venatici',
     ra: 13.498, dec: 47.195, image: 'images/seestar/M51.jpg', frame: [2.25, 4.0],
     type: 'Interacting galaxies',
@@ -77,6 +84,20 @@ const observations = [
     type: 'Wind-blown emission nebula',
     distance: 'about 7,100 light-years', size: 'about 0.05° across (bubble)', moons: 'about 0.1 Moon diameters',
     summary: 'A bubble of gas inflated by the fierce wind from a massive hot star. This wide field also shows open cluster M52 and the larger Lobster Claw region, Sh2-157.'
+  },
+  {
+    id: 'ic1848', title: 'The Soul Nebula', catalogue: 'IC 1848 · W5 · Sh2-199', constellation: 'Cassiopeia',
+    ra: 2.9, dec: 60.4, image: 'images/seestar/IC 1848 – Soul Nebula.jpg', frame: [3.8, 3.8],
+    type: 'Emission nebula · star-forming complex',
+    distance: 'about 6,500 light-years', size: 'about 2.5° × 1.25°', moons: 'about 5 × 2.5 Moon diameters',
+    summary: 'A vast complex of glowing gas, dark dust and young stars. Winds and ultraviolet radiation from the embedded clusters have carved large cavities through the cloud.'
+  },
+  {
+    id: 'ngc7380', title: 'The Wizard Nebula', catalogue: 'NGC 7380 · Sh2-142', constellation: 'Cepheus',
+    ra: 22.788, dec: 58.125, image: 'images/seestar/Ngc 7380 wizard.jpg', frame: [3.8, 3.8],
+    type: 'Emission nebula · young open cluster',
+    distance: 'about 7,000 light-years', size: 'about 0.5° across', moons: 'about 1 Moon diameter',
+    summary: 'A young open cluster embedded in a star-forming cloud. Bright ionisation fronts and dark dust lanes create the outline that inspired the nebula’s nickname.'
   },
   {
     id: 'eclipse', title: 'Sun & Moon', catalogue: 'Partial solar eclipse', constellation: 'The ecliptic',

@@ -52,7 +52,10 @@ if (lightbox) {
     'The Question Mark Nebula': { type: 'Emission nebula · star-forming complex', distance: 3000, distanceLabel: 'about 3,000 light-years', size: 3, sizeLabel: 'about 3° across', moons: 'about 6 Moon diameters', summary: 'A vast cloud of ionised hydrogen and dark dust shaped like a question mark, including NGC 7822 and the region around V398 Cephei.' },
     'The Western Veil Nebula': { type: 'Supernova remnant', distance: 2000, distanceLabel: 'about 2,000 light-years', size: 1.2, sizeLabel: 'about 1.2° × 0.1°', moons: '2.3 × 0.2 Moon diameters', summary: 'The western arc of the Veil Nebula, also called the Witch’s Broom. Its glowing filaments form an expanding shock front.' },
     'Bubble Nebula & friends': { type: 'Wind-blown emission nebula', distance: 7100, distanceLabel: 'about 7,100 light-years', size: .05, sizeLabel: 'about 0.05° across (bubble)', moons: 'about 0.1 Moon diameters', summary: 'A bubble of gas inflated by a massive hot star. The wide field also shows open cluster M52 and the larger Sh2-157 region.' },
+    'The Soul Nebula': { type: 'Emission nebula · star-forming complex', distance: 6500, distanceLabel: 'about 6,500 light-years', size: 2.5, sizeLabel: 'about 2.5° × 1.25°', moons: 'about 5 × 2.5 Moon diameters', summary: 'A vast complex of glowing gas, dark dust and young stars. Winds and ultraviolet radiation from the embedded clusters have carved large cavities through the cloud.' },
+    'The Wizard Nebula': { type: 'Emission nebula · young open cluster', distance: 7000, distanceLabel: 'about 7,000 light-years', size: .5, sizeLabel: 'about 0.5° across', moons: 'about 1 Moon diameter', summary: 'A young open cluster embedded in a star-forming cloud. Bright ionisation fronts and dark dust lanes create the outline that inspired the nebula’s nickname.' },
     'The Great Cluster in Hercules': { type: 'Globular star cluster', distance: 22200, distanceLabel: 'about 22,200 light-years', size: .33, sizeLabel: '0.33° across', moons: '0.67 Moon diameters', summary: 'Several hundred thousand ancient stars gathered into one of the northern sky’s finest globular clusters.' },
+    'The Pleiades': { type: 'Open star cluster · reflection nebula', distance: 445, distanceLabel: 'about 445 light-years', size: 1.3, sizeLabel: 'about 1.3° across', moons: 'about 2.6 Moon diameters', summary: 'A nearby young open cluster whose brightest blue stars are visible to the unaided eye. Their light is scattered by surrounding dust, producing the delicate blue reflection nebulosity.' },
     'Sun & Moon': { type: 'Solar-system event', distance: .0000000406, distanceLabel: 'Moon: about 384,400 km', size: .5, sizeLabel: 'about 0.5° across', moons: '1 Moon diameter', summary: 'The Moon passes between Earth and the Sun during a partial solar eclipse.' }
   };
   const lightboxSummary = lightbox.querySelector('.lightbox-summary');
@@ -118,7 +121,7 @@ if (lightbox) {
       const orderLabel = property === 'distance'
         ? (direction === 'asc' ? 'nearest first' : 'farthest first')
         : (direction === 'asc' ? 'smallest first' : 'largest first');
-      sortStatus.textContent = `Showing all twelve photographs sorted by ${property === 'size' ? 'angular size' : 'distance'}, ${orderLabel}.`;
+      sortStatus.textContent = `Showing all ${galleryCards.length} photographs sorted by ${property === 'size' ? 'angular size' : 'distance'}, ${orderLabel}.`;
     });
   }
   lightbox.querySelector('.lightbox-close').addEventListener('click', () => lightbox.close());
