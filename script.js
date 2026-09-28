@@ -60,83 +60,6 @@ if (lightbox) {
   };
   const lightboxSummary = lightbox.querySelector('.lightbox-summary');
   const lightboxFacts = Object.fromEntries([...lightbox.querySelectorAll('[data-lightbox-fact]')].map(item => [item.dataset.lightboxFact, item]));
-  const previousButton = lightbox.querySelector('.lightbox-prev');
-  const nextButton = lightbox.querySelector('.lightbox-next');
-  const playButton = lightbox.querySelector('.lightbox-play');
-  const shuffleButton = lightbox.querySelector('.lightbox-shuffle');
-  const fullscreenButton = lightbox.querySelector('.lightbox-fullscreen');
-  const lightboxCounter = lightbox.querySelector('.lightbox-counter');
-  let currentCard = null;
-  let slideshowTimer = null;
-  let slideshowPlaying = false;
-  let shuffleSlides = false;
-  const slideshowDelay = 6000;
-
-  function visibleGalleryCards() {
-    const sortedCards = [...document.querySelectorAll('.gallery-sorted-view:not([hidden]) .gallery-card')];
-    return sortedCards.length ? sortedCards : galleryCards;
-  }
-
-  function showGalleryCard(card) {
-    const info = galleryObjects[card.dataset.title];
-    currentCard = card;
-    lightboxImage.src = card.dataset.full;
-    lightboxImage.alt = card.querySelector('img').alt;
-    lightboxTitle.textContent = card.dataset.title;
-    lightboxMeta.textContent = card.dataset.meta;
-    if (lightboxSummary && info) {
-      lightboxSummary.textContent = info.summary;
-      lightboxFacts.type.textContent = info.type;
-      lightboxFacts.distance.textContent = info.distanceLabel;
-      lightboxFacts.size.textContent = info.sizeLabel;
-      lightboxFacts.moons.textContent = info.moons;
-    }
-    if (lightboxCounter) {
-      const cards = visibleGalleryCards();
-      lightboxCounter.textContent = `${cards.indexOf(card) + 1} / ${cards.length}`;
-    }
-  }
-
-  function moveGallery(direction, random = false) {
-    const cards = visibleGalleryCards();
-    if (!cards.length) return;
-    const currentIndex = Math.max(0, cards.indexOf(currentCard));
-    let nextIndex;
-    if (random && cards.length > 1) {
-      nextIndex = Math.floor(Math.random() * (cards.length - 1));
-      if (nextIndex >= currentIndex) nextIndex++;
-    } else {
-      nextIndex = (currentIndex + direction + cards.length) % cards.length;
-    }
-    showGalleryCard(cards[nextIndex]);
-  }
-
-  function scheduleNextSlide() {
-    clearTimeout(slideshowTimer);
-    if (!slideshowPlaying) return;
-    slideshowTimer = setTimeout(() => {
-      moveGallery(1, shuffleSlides);
-      scheduleNextSlide();
-    }, slideshowDelay);
-  }
-
-  function setSlideshowPlaying(playing) {
-    slideshowPlaying = playing;
-    lightbox.classList.toggle('is-playing', playing);
-    playButton?.setAttribute('aria-pressed', String(playing));
-    if (playButton) playButton.innerHTML = playing ? '<span aria-hidden="true">Ⅱ</span> Pause' : '<span aria-hidden="true">▶</span> Slideshow';
-    scheduleNextSlide();
-  }
-
-  async function toggleGalleryFullscreen(forceOn = false) {
-    if (!document.fullscreenEnabled) return;
-    try {
-      if (document.fullscreenElement === lightbox && !forceOn) await document.exitFullscreen();
-      else if (!document.fullscreenElement) await lightbox.requestFullscreen();
-    } catch (_) {
-      // The dialog still fills the viewport when browser fullscreen is unavailable.
-    }
-  }
 
   galleryCards.forEach(card => {
     const info = galleryObjects[card.dataset.title];
@@ -149,52 +72,21 @@ if (lightbox) {
       card.querySelector('.gallery-overlay > span:first-child').append(facts);
     }
     card.addEventListener('click', () => {
-      showGalleryCard(card);
+      const info = galleryObjects[card.dataset.title];
+      lightboxImage.src = card.dataset.full;
+      lightboxImage.alt = card.querySelector('img').alt;
+      lightboxTitle.textContent = card.dataset.title;
+      lightboxMeta.textContent = card.dataset.meta;
+      if (lightboxSummary && info) {
+        lightboxSummary.textContent = info.summary;
+        lightboxFacts.type.textContent = info.type;
+        lightboxFacts.distance.textContent = info.distanceLabel;
+        lightboxFacts.size.textContent = info.sizeLabel;
+        lightboxFacts.moons.textContent = info.moons;
+      }
       lightbox.showModal();
     });
   });
-
-  if (galleryCards.length) {
-    previousButton.addEventListener('click', () => {
-      moveGallery(-1);
-      scheduleNextSlide();
-    });
-    nextButton.addEventListener('click', () => {
-      moveGallery(1);
-      scheduleNextSlide();
-    });
-    shuffleButton.addEventListener('click', () => {
-      shuffleSlides = !shuffleSlides;
-      shuffleButton.classList.toggle('is-active', shuffleSlides);
-      shuffleButton.setAttribute('aria-pressed', String(shuffleSlides));
-    });
-    playButton.addEventListener('click', () => {
-      const startPlaying = !slideshowPlaying;
-      setSlideshowPlaying(startPlaying);
-      if (startPlaying) toggleGalleryFullscreen(true);
-    });
-    fullscreenButton.addEventListener('click', () => toggleGalleryFullscreen());
-    if (!document.fullscreenEnabled) fullscreenButton.hidden = true;
-
-    document.addEventListener('keydown', event => {
-      if (!lightbox.open) return;
-      if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
-        event.preventDefault();
-        moveGallery(event.key === 'ArrowLeft' ? -1 : 1);
-        scheduleNextSlide();
-      }
-    });
-    document.addEventListener('fullscreenchange', () => {
-      if (!fullscreenButton) return;
-      const active = document.fullscreenElement === lightbox;
-      fullscreenButton.classList.toggle('is-active', active);
-      fullscreenButton.innerHTML = active ? '<span aria-hidden="true">⛶</span> Exit full screen' : '<span aria-hidden="true">⛶</span> Full screen';
-    });
-    lightbox.addEventListener('close', () => {
-      setSlideshowPlaying(false);
-      if (document.fullscreenElement === lightbox) document.exitFullscreen().catch(() => {});
-    });
-  }
 
   const gallerySort = document.querySelector('#gallery-sort');
   if (gallerySort && galleryCards.length) {
